@@ -83,17 +83,14 @@ for train_index, test_index in split.split(housing, housing["income_cat"]):
 for set_ in (strat_train_set, strat_test_set):
     set_.drop("income_cat", axis=1, inplace=True)
 
-
 #훈련세트만 탐색
 housing = strat_train_set.copy()
-
 
 #시각화
 housing.plot(kind="scatter", x="longitude", y="latitude", alpha=0.4,\
              s=housing["population"]/100, label="population", figsize=(10,7),\
              c="median_house_value", cmap=plt.get_cmap("jet"), colorbar=True, sharex=False)
 plt.show()
-
 
 #상관관계 조사 : dataframe.corr()
 corr_matrix = housing.corr()
@@ -105,6 +102,8 @@ plt.show()
 
 #가구당 인원
 housing["rooms_per_household"] = housing["total_rooms"]
+
+print('hi')
 
 
 
